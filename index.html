@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/Promise.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+	</body>
+<script type="text/javascript">
+	let  compose = (...fns) =>{
+		return ()=>{
+			return ()=>{
+				let lastFn = fns.pop();
+				return fns.reduceRight((prev,next)=>{
+					return next(prev)
+				},lastFn(...args))
+			}
+		}
+	}
+
+</script>
+</html>
